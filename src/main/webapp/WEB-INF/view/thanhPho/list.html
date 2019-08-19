@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><a th:href="@{/create}">Tạo Một thành phố</a></h1>
+<th:block th:if="${message}">
+    <h3 th:text="${message}"></h3>
+</th:block>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Tên thành phố</th>
+        <th>Quốc gia</th>
+        <th>Chức Năng</th>
+    </tr>
+    <th:block th:each="thanhPho : ${nhieuThanhPho}">
+        <tr>
+            <td th:text="${thanhPho.id}"></td>
+            <td><a th:href="@{/view-thanhPho/__${thanhPho.getId()}__}" th:text="${thanhPho.tenThanhPho}"></a></td>
+            <td th:text="${thanhPho.quocGia.name}"></td>
+            <td><a th:href="@{/edit-thanhPho/__${thanhPho.getId()}__}">Edit</a>
+            <a th:href="@{/delete-thanhPho/__${thanhPho.getId()}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

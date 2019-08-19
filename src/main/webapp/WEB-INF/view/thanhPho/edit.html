@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3><a th:href="@{/home}">Xem Danh Sách Thành Phố</a></h3>
+
+<h1>Sửa Thông Tin Thành Phố</h1>
+<th:block th:if="${message}">
+    <h3><p th:text="${message}"></p></h3>
+</th:block>
+<form th:action="@{/edit-thanhPho}" th:object="${thanhPho}" method="post">
+    <table>
+        <tr>
+            <td><input type="hidden" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <th>Tên thành phố : </th>
+            <td><input type="text" th:field="*{tenThanhPho}"></td>
+        </tr>
+        <tr>
+            <th>Tên Quốc Gia : </th>
+            <td><select th:field="*{quocGia}">
+                <option th:each="p:${quocGia}" th:value="${p.id}" th:text="${p.name}"></option>
+            </select></td>
+        </tr>
+        <tr>
+            <th>Diện Tích :</th>
+            <td><input type="text" th:field="*{dienTich}"></td>
+        </tr>
+        <tr>
+            <th>Dân Số :</th>
+            <td><input type="text" th:field="*{danSo}"></td>
+        </tr>
+        <tr>
+            <th>GDP :</th>
+            <td><input type="text" th:field="*{gdp}"></td>
+        </tr>
+        <tr>
+            <th>Giới Thiệu :</th>
+            <td><textarea th:field="*{moTa}"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Sửa"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

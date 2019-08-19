@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3><a th:href="@{/home}">Xem Danh Sách Thành Phố</a></h3>
+<h1>Giới thiệu Chi Tiết </h1>
+
+<table>
+    <tr>
+        <th>Thành Phố :</th>
+        <th><p th:text="${thanhPho.tenThanhPho}"></p></th>
+    </tr>
+    <tr>
+        <th>Diện Tích :</th>
+        <th><p th:text="${thanhPho.dienTich}"></p></th>
+    </tr>
+    <tr>
+        <th>Dân số :</th>
+        <th><p th:text="${thanhPho.danSo}"></p></th>
+    </tr>
+    <tr>
+        <th>GDP :</th>
+        <th><p th:text="${thanhPho.gdp}"></p></th>
+    </tr>
+    <tr>
+        <th>Mô Tả :</th>
+        <th><p th:text="${thanhPho.moTa}"></p></th>
+    </tr>
+    <tr>
+        <th>Quốc Gia :</th>
+        <th><p th:text="${thanhPho.quocGia.name}"></p></th>
+    </tr>
+</table>
+</body>
+</html>
